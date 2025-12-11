@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 function Nav({ to, name }) {
   return (
     <NavLink
-      className="relative w-full  block px-2 text-black after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+      className="relative w-full  block px-2 text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
       to={to}
     >
       {name}
