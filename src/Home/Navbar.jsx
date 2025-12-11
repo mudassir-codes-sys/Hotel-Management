@@ -3,12 +3,11 @@ import logo from "../assets/logo.svg";
 import search from "../assets/searchIcon.svg";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import img from "../assets/manuel-moreno-DGa0LQ0yDPc-unsplash.jpg";
 
 function Nav({ to, name }) {
   return (
     <NavLink
-      className="relative inline-block px-2 text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+      className="relative w-full  block px-2 text-black after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
       to={to}
     >
       {name}
@@ -35,9 +34,9 @@ function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <div className="w-full h-20 flex items-center justify-between px-4 md:px-16 bg-transparent text-white relative">
+      <div className="w-full h-20 flex items-center  justify-between px-4 md:px-16 bg-transparent text-white relative">
         {/* Logo & Hamburger */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center  gap-4">
           <img
             src={logo}
             alt="logo"
@@ -55,7 +54,7 @@ function Navbar() {
               viewBox="0 0 24 24"
               strokeWidth={2}
               stroke="currentColor"
-              className="w-8 h-8"
+              className="w-8 absolute left-4 mt-6 h-8 "
             >
               <path
                 strokeLinecap="round"
@@ -94,7 +93,7 @@ function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-64 h-full bg-white text-black z-50 shadow-lg p-6 md:hidden"
+            className="fixed top-0 left-0 w-64 h-full bg-white  shadow-lg p-6 md:hidden"
           >
             <button
               className="absolute  top-4 right-4"
@@ -115,12 +114,12 @@ function Navbar() {
                 />
               </svg>
             </button>
-            <nav className="flex flex-col gap-6 mt-12 text-lg font-semibold">
-              <Nav to="/" name="HOME" />
-              <Nav to="/hotels" name="HOTELS" />
-              <Nav to="/experience" name="EXPERIENCE" />
-              <Nav to="/about" name="ABOUT" />
-            </nav>
+            <div className="flex flex-col gap-5 mt-10 text-lg font-semibold ">
+              <a href="/">HOME</a>
+              <a href="/experience">EXPERIENCE</a>
+              <a href="/hotels">HOTELS</a>
+              <a href="/about">ABOUT</a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
