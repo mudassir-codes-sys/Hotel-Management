@@ -7,21 +7,19 @@ import img from "../assets/manuel-moreno-DGa0LQ0yDPc-unsplash.jpg";
 
 function Nav({ to, name }) {
   return (
-    <div>
-      <NavLink
-        className="relative inline-block px-1 text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-        to={to}
-      >
-        {name}
-      </NavLink>
-    </div>
+    <NavLink
+      className="relative inline-block px-2 text-white after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+      to={to}
+    >
+      {name}
+    </NavLink>
   );
 }
 
 function Input({ placeholder, type }) {
   return (
     <input
-      className="bg-gray-200 text-black px-2 py-1 rounded-xl  outline-none"
+      className="bg-gray-200 text-black px-3 py-2 rounded-xl outline-none w-full"
       type={type}
       placeholder={placeholder}
     />
@@ -36,111 +34,79 @@ function Navbar() {
 
   return (
     <>
-      <div className=" text-white  md:w-full h-23 px-4 md:px-40 flex  items-center  justify-between">
-        {/* logo */}
-        <div className="flex flex-col">
+      {/* Navbar */}
+      <div className="w-full h-20 flex items-center justify-between px-4 md:px-16 bg-transparent text-white relative">
+        {/* Logo & Hamburger */}
+        <div className="flex items-center gap-4">
           <img
-            onClick={() => navigate("/")}
-            className=""
             src={logo}
             alt="logo"
+            className="h-10 cursor-pointer"
+            onClick={() => navigate("/")}
           />
-          <svg
+          {/* Hamburger mobile */}
+          <button
+            className="md:hidden block text-white"
             onClick={() => setIsOpen(!isOpen)}
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-7 md:hidden block cursor-pointer absolute top-5 right-5 z-50 "
           >
-            {" "}
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />{" "}
-          </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="w-8 h-8"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
 
-        {/* nav links */}
-        <nav>
-          <div className=" hidden md:flex gap-6 ">
-            <Nav to="/" name="HOME" />
-            <Nav to="/hotels" name="HOTELS" />
-            <Nav to="/experience" name="EXPERIENCE" />
-            <Nav to="/about" name="ABOUT" />
-          </div>
-        </nav>
+        {/* Nav Links Desktop */}
+        <div className="hidden md:flex gap-8">
+          <Nav to="/" name="HOME" />
+          <Nav to="/hotels" name="HOTELS" />
+          <Nav to="/experience" name="EXPERIENCE" />
+          <Nav to="/about" name="ABOUT" />
+        </div>
 
-        {/* search icon & login */}
-
-        <div className="flex  items-center gap-2 md:gap-6 ">
-          <img src={search} alt="search logo" />
+        {/* Search & Login */}
+        <div className="flex items-center gap-4">
+          <img src={search} alt="search" className="w-6 h-6" />
           <button
-            onClick={() => setIsLoginOpen(!isLoginOpen)}
-            className="cursor-pointer bg-black rounded-3xl px-5 py-2"
+            onClick={() => setIsLoginOpen(true)}
+            className="bg-black cursor-pointer px-4 py-2 rounded-3xl"
           >
             Login
           </button>
         </div>
       </div>
 
-      {/* Login */}
-
-      {isOpen && (
-        <div
-          data-aos="fade-right"
-          className="fixed top-0 left-0 h-full w-64 bg-white text-black shadow-xl z-[9999] p-6 md:hidden"
-        >
-          <svg
-            onClick={() => setIsOpen(false)}
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="size-7 absolute top-4 right-4 cursor-pointer"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-          <div className="flex flex-col gap-5 mt-10 text-lg font-semibold ">
-            <a href="/">HOME</a>
-            <a href="/experience">EXPERIENCE</a>
-            <a href="/hotels">HOTELS</a>
-            <a href="/about">ABOUT</a>
-          </div>
-        </div>
-      )}
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {isLoginOpen && (
+        {isOpen && (
           <motion.div
-            key="loginModal"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -50 }}
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
             transition={{ duration: 0.3 }}
-            className="md:w-90  h-110 rounded-2xl  text-white fixed left-6 md:left-125 md:mt-8 mt-10 z-[999] overflow-hidden"
+            className="fixed top-0 left-0 w-64 h-full bg-white text-black z-50 shadow-lg p-6 md:hidden"
           >
-            <img
-              src={img}
-              alt="login-bg"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black opacity-85"></div>
-            <div>
+            <button
+              className="absolute  top-4 right-4"
+              onClick={() => setIsOpen(false)}
+            >
               <svg
-                onClick={() => setIsLoginOpen(false)}
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
+                strokeWidth={2}
                 stroke="currentColor"
-                className="size-7 absolute top-4 right-4 cursor-pointer"
+                className="w-6 h-6"
               >
                 <path
                   strokeLinecap="round"
@@ -148,50 +114,85 @@ function Navbar() {
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
-            </div>
-            <div className="p-15 ">
-              <form
-                className="relative  "
-                action="
-                
-                "
+            </button>
+            <nav className="flex flex-col gap-6 mt-12 text-lg font-semibold">
+              <Nav to="/" name="HOME" />
+              <Nav to="/hotels" name="HOTELS" />
+              <Nav to="/experience" name="EXPERIENCE" />
+              <Nav to="/about" name="ABOUT" />
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Login Modal */}
+      <AnimatePresence>
+        {isLoginOpen && (
+          <motion.div
+            key="loginModal"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 flex items-center justify-center z-50"
+          >
+            <div
+              className="absolute inset-0 bg-black/70"
+              onClick={() => setIsLoginOpen(false)}
+            ></div>
+
+            <div className="relative bg-white w-11/12 md:w-96 rounded-2xl overflow-hidden p-6 z-10">
+              <button
+                className="absolute top-4 right-4 text-black"
+                onClick={() => setIsLoginOpen(false)}
               >
-                <div className="flex  justify-center items-center  flex-col gap-4">
-                  <h1 className="font-semibold text-2xl">
-                    {isLoginForm ? "Login" : "Sign up"}{" "}
-                  </h1>
-                  <h1 className="font-semibold text-2xl">
-                    {isLoginForm ? "Welcome Back" : "Create Your Account"}{" "}
-                  </h1>
-                  {!isLoginForm && <Input type="text" placeholder="Username" />}
-                  <Input type="text" placeholder="Email" />
-                  <Input type="password" placeholder="Password" />
-                  {!isLoginForm && (
-                    <Input
-                      type="Password"
-                      placeholder="Re-Enter Your Password"
-                    />
-                  )}
-                  <button
-                    type="submit"
-                    className='cursor-pointer {isLoginForm && "mt-2"}  bg-gray-500 rounded-3xl px-5 py-2 text-white'
-                  >
-                    {isLoginForm ? "Login" : "Sign up"}
-                  </button>
-                  <p className={isLoginForm && "mt-2"}>
-                    {" "}
-                    Don't have an account?{" "}
-                    <span
-                      onClick={() => {
-                        setIsLoginForm(!isLoginForm);
-                      }}
-                      className="cursor-pointer text-blue-600 hover:underline"
-                    >
-                      {isLoginForm ? "Sign up" : "Login"}
-                    </span>{" "}
-                  </p>
-                </div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                  className="w-6 h-6 cursor-pointer "
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              <h1 className="text-2xl font-semibold text-center">
+                {isLoginForm ? "Login" : "Sign up"}
+              </h1>
+              <h2 className="text-lg text-center mb-4">
+                {isLoginForm ? "Welcome Back" : "Create Your Account"}
+              </h2>
+
+              <form className="flex flex-col gap-3">
+                {!isLoginForm && <Input type="text" placeholder="Username" />}
+                <Input type="text" placeholder="Email" />
+                <Input type="password" placeholder="Password" />
+                {!isLoginForm && (
+                  <Input type="password" placeholder="Re-enter Password" />
+                )}
+
+                <button className="bg-gray-800 cursor-pointer text-white rounded-xl py-2 mt-2">
+                  {isLoginForm ? "Login" : "Sign up"}
+                </button>
               </form>
+
+              <p className="text-center mt-4 text-sm">
+                {isLoginForm
+                  ? "Don't have an account?"
+                  : "Already have an account?"}{" "}
+                <span
+                  onClick={() => setIsLoginForm(!isLoginForm)}
+                  className="text-blue-600 cursor-pointer hover:underline"
+                >
+                  {isLoginForm ? "Sign up" : "Login"}
+                </span>
+              </p>
             </div>
           </motion.div>
         )}
@@ -199,4 +200,5 @@ function Navbar() {
     </>
   );
 }
+
 export default Navbar;
