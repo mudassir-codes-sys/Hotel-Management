@@ -35,15 +35,15 @@ function Hero() {
       </div>
 
       {/* heading and para */}
-      <div className="bg-[#4A85B0] inline-block absolute top-35 left-6 md:top-45 md:left-40 px-4 py-1 rounded-2xl">
+      <div className="bg-[#4A85B0] inline-block md:mt-40 mt-30  md:ml-20 ml-8 px-4 py-1 rounded-2xl">
         <p className="text-white">The Ultimate Hotel Experience</p>
       </div>
-      <div className=" absolute md:top-55 top-50 md:left-40 left-5 max-w-140  ">
+      <div className=" mt-3 md:ml-20 ml-8  max-w-140  ">
         <h1 className="md:text-5xl text-2xl  md:leading-15 font-bold text-white ">
           Discover Your Perfect GateAway Destination{" "}
         </h1>
       </div>
-      <div className="absolute max-w-70  top-70 left-14 md:top-90 md:left-40 md:max-w-120">
+      <div className="  mt-3 md:ml-20 ml-8   max-w-70 md:max-w-120">
         <p className="text-white  font-medium ">
           Unparalleled luxury and comfort await at the world's most exclusive
           hotels and resorts. Start your journey today.
@@ -51,7 +51,7 @@ function Hero() {
       </div>
 
       {/* form */}
-      <form className="md:min-w-200 min-w-70 h-110   absolute flex  flex-col md:flex-row  justify-center  items-center gap-2 md:gap-6 md:px-5  py-2  md:left-82 md:top-110 top-95 left-15 rounded-2xl  bg-gray-300 md:h-35">
+      <form className="md:max-w-200 max-w-70 mx-auto max-h-110 mt-5  flex  flex-col md:flex-row  justify-center  items-center gap-2 md:gap-6 md:px-5  py-2   rounded-2xl  bg-gray-300 md:h-35">
         <Info
           type="text"
           placeholder="Type here"
