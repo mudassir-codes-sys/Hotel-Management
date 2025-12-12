@@ -1,27 +1,28 @@
-
-
-import FeaturedList from "./FeaturedList"
-import FeaturedProduct from "./FeaturedProduct"
-
-
+import FeaturedList from "./FeaturedList";
+import FeaturedProduct from "./FeaturedProduct";
 
 function FeaturedDestination() {
-    return (
-        <>
-            <div data-aos="fade-up" className=" mt-30  flex flex-col justify-center items-center">
-                <h1 className="text-4xl">Featured Destination</h1>
-                <p className="max-w-150  text-sm md:text-base  text-center mt-2 leading-6 text-gray-600" >Discover our handpicked selection of exceptional properties around the world, offering unparalleled luxury and unforgettable experiences.</p>
+  return (
+    <>
+      <div
+        data-aos="fade-up"
+        className=" mt-30  flex flex-col justify-center items-center"
+      >
+        <h1 className="text-4xl">Featured Destination</h1>
+        <p className="max-w-150  text-sm md:text-base  text-center mt-2 leading-6 text-gray-600">
+          Discover our handpicked selection of exceptional properties around the
+          world, offering unparalleled luxury and unforgettable experiences.
+        </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3  gap-5 justify-items-center px-30 mt-4" >
-                    <FeaturedList />
-                </div>
-                <div className="flex justify center  mt-14 border-2 border-gray-400 py-1 px-2" >
-                    <button>View All Destinations</button>
-                </div>
-            </div>
-
-        </>
-    )
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-5 justify-items-center px-30 mt-4">
+          <FeaturedList />
+        </div>
+        <div className="flex justify center  mt-14 border-2 border-gray-400 py-1 px-2">
+          <button>View All Destinations</button>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default FeaturedDestination
+export default FeaturedDestination;
