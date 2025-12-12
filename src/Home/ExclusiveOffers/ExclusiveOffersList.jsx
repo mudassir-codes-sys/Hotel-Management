@@ -35,7 +35,7 @@ const offers = [
 
 function ExclusiveOffersList() {
     return (
-        <div className='mt-30 grid grid-cols-1 md:gap-0 gap-4 justify-items-center md:grid-cols-3 md:px-20 '  >
+        <div className=' md:mt-30 mt-10 grid grid-cols-1 md:gap-0 gap-4 justify-items-center md:grid-cols-3 md:px-20 '  >
             {offers.map((offer, i) => (
                 <ExclusiveOfferCard key={i} img={offer.img} off={offer.off} heading={offer.heading} para={offer.para} date={offer.date} />
             ))}

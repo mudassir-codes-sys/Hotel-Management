@@ -12,7 +12,7 @@ function EmptyStar() {
 
 function GuestCard({ fullName, city, comment }) {
     return (
-        <div className="min-w-auto min-h-60 flex justify-center  py-5" >
+        <div className="min-w-auto min-h-60 flex justify-center   py-4" >
         <div className='bg-[#f1efef] rounded-lg  w-80 md:h-50 p-2 '  >
             <div className="flex " >
                 <img className="w-8" src={guest1} alt="guest-pic" />

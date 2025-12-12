@@ -19,7 +19,7 @@ const reviews = [
 ]
 function GuestCardList() {
     return (
-        <div data-aos="fade-up" className="mt-15 grid grid-cols-1 md:grid-cols-3  md:px-10 ">
+        <div  className="mt-10 grid grid-cols-1 md:grid-cols-3   md:px-10 ">
             {reviews.map((review, i) => (
                 <GuestCard key={i} fullName={review.fullName} city={review.city} comment={review.comment} />
             ))}
