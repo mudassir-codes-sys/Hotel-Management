@@ -26,7 +26,7 @@ function GuestCard({ fullName, city, comment }) {
                 <FilledStar />
                 <EmptyStar />
             </div>
-            <p className="mt-4 text-gray-700" >{comment}</p>
+            <p className="mt-4 py-2 text-gray-700" >{comment}</p>
         </div>
         </div>
     )

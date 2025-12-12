@@ -1,21 +1,22 @@
 import star from "../../assets/starIconFilled.svg";
-import location from "../../assets/locationIcon.svg";
 import { MapPin } from "lucide-react";
 function FeaturedProduct({ img, title, rating, price, para }) {
   return (
     <div className="w-80 h-85  text-gray-700 px-2 ">
       <img src={img} className="rounded-lg" alt="room" />
-      <div className="flex justify-between  mt-2  ">
-        <h1 className="text-base font-semibold">{title}</h1>
-        <div className="flex gap-2">
+      <div className="flex justify-between items-center   mt-2  ">
+        <h1 className=" text-xl  font-bold">{title}</h1>
+        <div className="flex justify-center items-center gap-2">
           <img src={star} alt="" />
           <p>{rating}</p>
         </div>
       </div>
-
-      <div className="flex justify-center items-center gap-2 ">
-        <MapPin />
-        <p className="leading-4 text-sm mt-1">{para}</p>
+      <div>
+        <p className="text-sm  text-gray-500">Jumeria Bay Island, Jumeriah 2</p>
+      </div>
+      <div className="flex items-center font-semibold   gap-1 ">
+        <MapPin width="20px" />
+        <p className="leading-4  text-base mt-1">{para}</p>
       </div>
       <div className="mt-2 flex justify-between ">
         <p className="text-lg font-semibold text-black">

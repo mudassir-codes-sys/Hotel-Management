@@ -6,7 +6,7 @@ import search from "../assets/searchIcon.svg";
 function Info({ type, placeholder, label, className = "" }) {
   return (
     <>
-      <div className="flex flex-col w-full md:w-auto  gap-3">
+      <div className="flex flex-col  md:w-auto  gap-3">
         <div className="flex items-center gap-2  ">
           <CalendarDays />
           <label className="font-medium" htmlFor={label}>
@@ -29,7 +29,7 @@ function Hero() {
 
     <div
       data-aos="fade-down"
-      className="min-w-full min-h-screen bg-cover  bg-center relative"
+      className="min-w-full min-h-screen bg-cover py-10 bg-center relative"
       style={{ backgroundImage: `url(${hero})` }}
     >
       <div className="absolute top-0 left-0 w-full">
@@ -37,7 +37,7 @@ function Hero() {
       </div>
 
       {/* heading and para */}
-      <div className="bg-[#4A85B0] inline-block md:mt-40 mt-30  md:ml-20 ml-8 px-4 py-1 rounded-2xl">
+      <div className="bg-[#4A85B0] inline-block md:mt-25 mt-25  md:ml-20 ml-8 px-4 py-1 rounded-2xl">
         <p className="text-white">The Ultimate Hotel Experience</p>
       </div>
       <div className=" mt-3 md:ml-20 ml-8  max-w-140  ">
@@ -53,20 +53,21 @@ function Hero() {
       </div>
 
       {/* form */}
-      <form className="md:max-w-250  max-w-80 mx-auto max-h-110 mt-5  flex justify-center  items-center flex-col md:flex-row   gap-2 md:gap-6 md:px-5 md:py-0 py-8   rounded-2xl  bg-gray-300 md:h-35">
-        <div className="flex md:flex-row flex-col  justify-center items-center gap-4 ">
+
+      <form className=" md:max-w-200  max-w-80  mx-auto max-h-110 mt-8  flex justify-center  items-center  flex-col md:flex-row  gap-2 md:gap-4  md:py-0 py-10 rounded-2xl  bg-gray-300 md:h-35">
+        <div className="flex  md:flex-row flex-col  justify-center items-center gap-4 ">
           <Info
             type="text"
             placeholder="Type here"
             label="Destination"
-            className=""
+            className="md:max-w-40"
           />
           <Info type="date" placeholder="mm/dd/yy" label="Check in" />
           <Info type="date" placeholder="mm/dd/yy" label="Check out" />
           <Info
             type="number"
             placeholder="0"
-            className="  text-center "
+            className="  text-center md:max-w-30"
             label="Guests"
           />
 

@@ -17,7 +17,7 @@ function FeaturedDestination() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3  gap-5 justify-items-center px-30 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-10  lg:gap-5 gap-5 justify-items-center md:px-10 mt-4">
           <FeaturedList />
         </div>
         <div className="flex justify center  mt-14 border-2 border-gray-400 py-1 px-2">
